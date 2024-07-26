@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FantaOlimpiadi</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>FantaOlimpiadi</h1>
+    </header>
+    
+    <main>
+        <div id="specialties-container"></div>
+        <div id="team-members">
+            <h3>Atleti della Squadra</h3>
+
+
+        <div id="team-management">
+            <input type="text" id="team-name" placeholder="Nome della squadra">
+            <input type="text" id="capitano-maschile" placeholder="Capitano Maschile">
+            <select id="capitano-maschile-specialty">
+               <option value="">Seleziona Specialità</option>
+                <option value="100 metri">100 metri</option>
+                <option value="200 metri">200 metri</option>
+                <option value="400 metri">400 metri</option>
+                <option value="800 metri">800 metri</option>
+                <option value="1500 metri">1500 metri</option>
+                <option value="5000 metri">5000 metri</option>
+                <option value="10000 metri">10000 metri</option>
+                <option value="Maratona">Maratona</option>
+                <option value="110 hs">110 hs</option>
+                <option value="400 hs">400 hs</option>
+                <option value="3000 metri sc">3000 metri sc</option>
+                <option value="Salto in alto">Salto in alto</option>
+                <option value="Salto in lungo">Salto in lungo</option>
+                <option value="Salto con l'asta">Salto con l'asta</option>
+                <option value="Salto triplo">Salto triplo</option>
+                <option value="Giavellotto">Giavellotto</option>
+                <option value="Peso">Peso</option>
+                <option value="Disco">Disco</option>
+                <option value="Martello">Martello</option>
+                <option value="Decathlon">Decathlon</option>
+                <option value="20 Km marcia">20 Km marcia</option>
+                <option value="4x100">4x100</option>
+                <option value="4x400">4x400</option>
+            </select>
+            <input type="text" id="capitano-femminile" placeholder="Capitano Femminile">
+            <select id="capitano-femminile-specialty">
+                <option value="">Seleziona Specialità</option>
+                <option value="100 metri">100 metri</option>
+                <option value="200 metri">200 metri</option>
+                <option value="400 metri">400 metri</option>
+                <option value="800 metri">800 metri</option>
+                <option value="1500 metri">1500 metri</option>
+                <option value="5000 metri">5000 metri</option>
+                <option value="10000 metri">10000 metri</option>
+                <option value="Maratona">Maratona</option>
+                <option value="110 hs">110 hs</option>
+                <option value="400 hs">400 hs</option>
+                <option value="3000 metri sc">3000 metri sc</option>
+                <option value="Salto in alto">Salto in alto</option>
+                <option value="Salto in lungo">Salto in lungo</option>
+                <option value="Salto con l'asta">Salto con l'asta</option>
+                <option value="Salto triplo">Salto triplo</option>
+                <option value="Giavellotto">Giavellotto</option>
+                <option value="Peso">Peso</option>
+                <option value="Disco">Disco</option>
+                <option value="Martello">Martello</option>
+                <option value="Decathlon">Decathlon</option>
+                <option value="20 Km marcia">20 Km marcia</option>
+                <option value="4x100">4x100</option>
+                <option value="4x400">4x400</option>
+            </select>
+            <button id="add-team">Aggiungi Squadra</button>
+        </div>
+
+        <div id="points-assignment">
+            <input type="text" id="athlete-name" placeholder="Nome Atleta">
+ <select id="gender">
+                <option value="male">Maschile</option>
+                <option value="female">Femminile</option>
+            </select>
+            <select id="specialty">
+                <option value="">Seleziona Specialità</option>
+                <option value="100 metri">100 metri</option>
+                <option value="200 metri">200 metri</option>
+                <option value="400 metri">400 metri</option>
+                <option value="800 metri">800 metri</option>
+                <option value="1500 metri">1500 metri</option>
+                <option value="5000 metri">5000 metri</option>
+                <option value="10000 metri">10000 metri</option>
+                <option value="Maratona">Maratona</option>
+                <option value="110 hs">110 hs</option>
+                <option value="400 hs">400 hs</option>
+                <option value="3000 metri sc">3000 metri sc</option>
+                <option value="Salto in alto">Salto in alto</option>
+                <option value="Salto in lungo">Salto in lungo</option>
+                <option value="Salto con l'asta">Salto con l'asta</option>
+                <option value="Salto triplo">Salto triplo</option>
+                <option value="Giavellotto">Giavellotto</option>
+                <option value="Peso">Peso</option>
+                <option value="Disco">Disco</option>
+                <option value="Martello">Martello</option>
+                <option value="Decathlon">Decathlon</option>
+                <option value="20 Km marcia">20 Km marcia</option>
+                <option value="4x100">4x100</option>
+                <option value="4x400">4x400</option>
+            </select>
+            <input type="text" id="stage" placeholder="Fase (Semifinale/Finale)">
+            <input type="number" id="position" placeholder="Posizione">
+            <input type="checkbox" id="record"> Record nazionale
+            <input type="checkbox" id="record-continental"> Record Continentale
+            <input type="checkbox" id="record-championships"> Record dei Campionati
+            <input type="checkbox" id="record-world"> Record Mondiale
+            <input type="checkbox" id="dnf"> DNF
+            <input type="checkbox" id="dq"> DQ
+           
+            <button id="assign-points">Assegna Punti</button>
+        </div>
+        
+        <div id="teams-container">
+            <h2>Squadre</h2>
+            <button id="show-teams">Mostra Squadre</button>
+            <div id="teams-list"></div>
+        </div>
+        
+       
+    </main>
+</body>
+</html>

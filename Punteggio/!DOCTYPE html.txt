@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FantaOlimpiadi</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>FantaOlimpiadi</h1>
+    </header>
+    
+    <main>
+        <div id="specialties-container"></div>
+
+         <div id="male-100m-athletes-container" class="athletes-container">
+            <h3>Atleti Maschili: 100 metri</h3>
+            <select id="male-100m-athlete-select">
+                <option value="">Seleziona Atleta</option>
+                <option value="LYLES, Noah">LYLES, Noah (USA) - 15 punti</option>
+ 
+            </select>
+        </div>
+<div id="male-200m-athletes-container" class="athletes-container">
+    <h3>Atleti Maschili: 200 metri</h3>
+    <select id="male-200m-athlete-select">
+        <option value="">Seleziona Atleta</option>
+        <option value="LYLES, Noah">LYLES, Noah (USA) - 15 punti</option>
+        <option value="BEDNAREK, Kenneth">BEDNAREK, Kenneth (USA) - 12 punti</option>
+        
+    </select>
+</div>
+<div id="male-400m-athletes-container" class="athletes-container">
+    <h3>Atleti Maschili: 400 metri</h3>
+    <select id="male-400m-athlete-select">
+        <option value="">Seleziona Atleta</option>
+        <option value="HALL, Quincy">HALL, Quincy (USA) - 15 punti</option>
+        <option value="MORALES-WILLIAMS">MORALES-WILLIAMS (CAN) - 12 punti</option>
+  
+    </select>
+</div>
+<div id="male-800m-athletes-container" class="athletes-container">
+    <h3>Atleti Maschili: 800 metri</h3>
+    <select id="male-800m-athlete-select">
+        <option value="">Seleziona Atleta</option>
+        <option value="SEDJATI, DJAMEL">SEDJATI, DJAMEL (ALG) - 15 punti</option>
+        <option value="TUAL, GABRIEL">TUAL, GABRIEL (FRA) - 12 punti</option>
+
+    </select>
+</div>
+<div id="male-1500m-athletes-container" class="athletes-container">
+    <h3>Atleti Maschili: 1500 metri</h3>
+    <select id="male-1500m-athlete-select">
+        <option value="">Seleziona Atleta</option>
+        <option value="INGEBRIGTSEN, JAKOB">INGEBRIGTSEN, JAKOB (NOR) - 15 punti</option>
+
+    </select>
+</div>
+<div id="male-5000m-athletes-container" class="athletes-container">
+    <h3>Atleti Maschili: 5000 metri</h3>
+    <select id="male-5000m-athlete-select">
+        <option value="">Seleziona Atleta</option>
+        <option value="GEBRHIWET, HAGOS">GEBRHIWET, HAGOS (ETH) - 14 punti</option>
+ 
+    </select>
+</div>
+<div id="male-10000m-athletes-container" class="athletes-container">
+    <h3>Atleti Maschili: 10.000 metri</h3>
+    <select id="male-10000m-athlete-select">
+        <option value="">Seleziona Atleta</option>
+        <option value="KEJELCHA, YOMIF">KEJELCHA, YOMIF (ETH) - 13 punti</option>
+        <option value="AREGAWI, BERIHU">AREGAWI, BERIHU (ETH) - 12 punti</option>
+       
+    </select>
+</div>
+
+        <div id="female-athletes-container" class="athletes-container">
+            <h3>Atleti Femminili</h3>
+            <select id="female-athlete-select">
+                <option value="">Seleziona Atleta</option>
+            </select>
+        </div>
+
+        <div id="team-management">
+            <input type="text" id="team-name" placeholder="Nome della squadra">
+            <input type="text" id="capitano-maschile" placeholder="Capitano Maschile">
+            <input type="text" id="capitano-femminile" placeholder="Capitano Femminile">
+            <button id="add-team">Aggiungi Squadra</button>
+        </div>
+
+        <div id="points-assignment">
+            <input type="text" id="athlete-name" placeholder="Nome Atleta">
+            <select id="specialty">
+                <option value="">Seleziona Specialità</option>
+                <option value="100 metri">100 metri</option>
+                <option value="200 metri">200 metri</option>
+                <option value="400 metri">400 metri</option>
+                <option value="800 metri">800 metri</option>
+                <option value="1500 metri">1500 metri</option>
+                <option value="5000 metri">5000 metri</option>
+                <option value="10000 metri">10000 metri</option>
+                <option value="Maratona">Maratona</option>
+                <option value="110 hs">110 hs</option>
+                <option value="400 hs">400 hs</option>
+                <option value="3000 metri sc">3000 metri sc</option>
+                <option value="Salto in alto">Salto in alto</option>
+                <option value="Salto in lungo">Salto in lungo</option>
+                <option value="Salto con l'asta">Salto con l'asta</option>
+                <option value="Salto triplo">Salto triplo</option>
+                <option value="Giavellotto">Giavellotto</option>
+                <option value="Peso">Peso</option>
+                <option value="Disco">Disco</option>
+                <option value="Martello">Martello</option>
+                <option value="Decathlon">Decathlon</option>
+                <option value="20 Km marcia">20 Km marcia</option>
+                <option value="4x100">4x100</option>
+                <option value="4x400">4x400</option>
+            </select>
+            <input type="text" id="stage" placeholder="Fase (Semifinale/Finale)">
+            <input type="number" id="position" placeholder="Posizione">
+            <input type="checkbox" id="record"> Record
+            <input type="checkbox" id="record-continental"> Record Continentale
+            <input type="checkbox" id="record-championships"> Record dei Campionati
+            <input type="checkbox" id="record-world"> Record Mondiale
+            <input type="checkbox" id="dnf"> DNF
+            <input type="checkbox" id="dq"> DQ
+            <button id="assign-points">Assegna Punti</button>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <a href="#home" id="budget-male" class="budget-male">Budget Maschile disponibile: 200 crediti</a>
+                <a href="#home" id="budget-female" class="budget-female">Budget Femminile disponibile: 200 crediti</a>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>

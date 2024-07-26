@@ -1,0 +1,195 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const budgetMaleElement = document.getElementById('budget-male');
+    const budgetFemaleElement = document.getElementById('budget-female');
+    const submitTeamButton = document.getElementById('submit-team');
+    const specialtiesContainer = document.getElementById('specialties-container');
+    const initialSelection = document.getElementById('initial-selection');
+    const selectionContainer = document.getElementById('selezione-capitani');
+    const summaryContainer = document.getElementById('summary-container');
+
+    let budgetMale = 200;
+    let budgetFemale = 200;
+    let selectedMaleTeam = JSON.parse(localStorage.getItem('selectedMaleTeam')) || {};
+    let selectedFemaleTeam = JSON.parse(localStorage.getItem('selectedFemaleTeam')) || {};
+
+    const specialties = [
+        "100 metri", "200 metri", "400 metri", "800 metri", "1500 metri", 
+        "5000 metri", "10000 metri", "Maratona", "110 hs", "400 hs", 
+        "3000 metri sc", "Salto in alto", "Salto in lungo", "Salto con l'asta", 
+        "Salto triplo", "Giavellotto", "Peso", "Disco", "Martello", "Decathlon",
+        "20 Km marcia", "4x100", "4x400"
+    ];
+
+    const maleAthletes = {
+        // ... (come definito in precedenza)
+    };
+
+    const femaleAthletes = {
+        // ... (come definito in precedenza)
+    };
+
+    function createSpecialtyGrid(gender, athletes) {
+        specialtiesContainer.innerHTML = '';
+
+        specialties.forEach(specialty => {
+            const specialtyDiv = document.createElement('div');
+            specialtyDiv.className = 'specialty';
+            specialtyDiv.innerHTML = `<h3>${specialty}</h3>`;
+            
+            athletes[specialty]?.sort((a, b) => b.value - a.value).forEach(athlete => {
+                const athleteDiv = document.createElement('div');
+                athleteDiv.className = 'athlete';
+                athleteDiv.innerText = `${athlete.name} (${athlete.country}) - ${athlete.value} crediti`;
+                athleteDiv.addEventListener('click', () => selectAthlete(gender, specialty, athlete));
+                specialtyDiv.appendChild(athleteDiv);
+            });
+
+            specialtiesContainer.appendChild(specialtyDiv);
+        });
+    }
+
+    function selectAthlete(gender, specialty, athlete) {
+        const budgetElement = gender === 'male' ? budgetMaleElement : budgetFemaleElement;
+        let budget = gender === 'male' ? budgetMale : budgetFemale;
+        let selectedTeam = gender === 'male' ? selectedMaleTeam : selectedFemaleTeam;
+
+        if (selectedTeam[specialty]) {
+            budget += selectedTeam[specialty].value;
+        }
+
+        if (budget < athlete.value) {
+            alert('Budget insufficiente');
+            return;
+        }
+
+        budget -= athlete.value;
+        selectedTeam[specialty] = athlete;
+        budgetElement.innerText = `Budget disponibile: ${budget}`;
+
+        if (gender === 'male') {
+            budgetMale = budget;
+            selectedMaleTeam = selectedTeam;
+        } else {
+            budgetFemale = budget;
+            selectedFemaleTeam = selectedTeam;
+        }
+
+        updateSubmitButton();
+        saveSelections();  // Salva le scelte ogni volta che viene selezionato un atleta
+    }
+
+    function updateSubmitButton() {
+        const maleComplete = specialties.every(s => selectedMaleTeam[s]);
+        const femaleComplete = specialties.every(s => selectedFemaleTeam[s]);
+        submitTeamButton.disabled = !(maleComplete && femaleComplete);
+    }
+
+    function validateSelection() {
+        const missingMaleSpecialties = specialties.filter(s => !selectedMaleTeam[s]);
+        const missingFemaleSpecialties = specialties.filter(s => !selectedFemaleTeam[s]);
+        
+        if (missingMaleSpecialties.length > 0 || missingFemaleSpecialties.length > 0) {
+            let alertMessage = '';
+            if (missingMaleSpecialties.length > 0) {
+                alertMessage += 'Per gli uomini, manca la selezione delle seguenti specialità: ' + missingMaleSpecialties.join(', ') + '.\n';
+            }
+            if (missingFemaleSpecialties.length > 0) {
+                alertMessage += 'Per le donne, manca la selezione delle seguenti specialità: ' + missingFemaleSpecialties.join(', ') + '.';
+            }
+            alert(alertMessage);
+            return false;
+        }
+        return true;
+    }
+
+    function showSelectionSummary() {
+        summaryContainer.innerHTML = '<h2>Atleti Selezionati</h2>';
+
+        // Aggiungi atleti maschili
+        const maleTeamDiv = document.createElement('div');
+        maleTeamDiv.innerHTML = '<h3>Team Maschile</h3>';
+        for (const [specialty, athlete] of Object.entries(selectedMaleTeam)) {
+            const athleteDiv = document.createElement('div');
+            athleteDiv.innerText = `${specialty}: ${athlete.name} (${athlete.country}) - ${athlete.value} crediti`;
+            maleTeamDiv.appendChild(athleteDiv);
+        }
+        summaryContainer.appendChild(maleTeamDiv);
+
+        // Aggiungi atleti femminili
+        const femaleTeamDiv = document.createElement('div');
+        femaleTeamDiv.innerHTML = '<h3>Team Femminile</h3>';
+        for (const [specialty, athlete] of Object.entries(selectedFemaleTeam)) {
+            const athleteDiv = document.createElement('div');
+            athleteDiv.innerText = `${specialty}: ${athlete.name} (${athlete.country}) - ${athlete.value} crediti`;
+            femaleTeamDiv.appendChild(athleteDiv);
+        }
+        summaryContainer.appendChild(femaleTeamDiv);
+
+        // Aggiungi il modulo per selezionare i capitani
+        summaryContainer.innerHTML += `
+            <h2>Seleziona i Capitani</h2>
+            <label for="capitano-maschile">Capitano Maschile:</label>
+            <input type="text" id="capitano-maschile" placeholder="Nome Capitano Maschile">
+            <br>
+            <label for="capitano-femminile">Capitano Femminile:</label>
+            <input type="text" id="capitano-femminile" placeholder="Nome Capitano Femminile">
+            <br>
+            <button id="confirm-captains">Conferma Capitani</button>
+            <button id="modify-selection">Modifica Selezioni</button>
+            <button id="send-email">Invia Email</button>
+        `;
+
+        document.getElementById('confirm-captains').addEventListener('click', () => {
+            const captainMale = document.getElementById('capitano-maschile').value;
+            const captainFemale = document.getElementById('capitano-femminile').value;
+            if (captainMale && captainFemale) {
+                alert(`Capitano Maschile: ${captainMale}\nCapitano Femminile: ${captainFemale}`);
+                // Potresti inviare queste informazioni tramite email qui
+            } else {
+                alert('Seleziona entrambi i capitani.');
+            }
+        });
+
+        document.getElementById('modify-selection').addEventListener('click', () => {
+            initialSelection.style.display = 'block';
+            summaryContainer.innerHTML = '';
+        });
+
+        document.getElementById('send-email').addEventListener('click', () => {
+            const captainMale = document.getElementById('capitano-maschile').value;
+            const captainFemale = document.getElementById('capitano-femminile').value;
+            if (captainMale && captainFemale) {
+                // Codice per inviare l'email
+                alert('Email inviata con successo!');
+            } else {
+                alert('Seleziona entrambi i capitani.');
+            }
+        });
+    }
+
+    function saveSelections() {
+        localStorage.setItem('selectedMaleTeam', JSON.stringify(selectedMaleTeam));
+        localStorage.setItem('selectedFemaleTeam', JSON.stringify(selectedFemaleTeam));
+    }
+
+    document.getElementById('uomini').addEventListener('click', () => {
+        initialSelection.style.display = 'none';
+        createSpecialtyGrid('male', maleAthletes);
+    });
+
+    document.getElementById('donne').addEventListener('click', () => {
+        initialSelection.style.display = 'none';
+        createSpecialtyGrid('female', femaleAthletes);
+    });
+
+    document.getElementById('home').addEventListener('click', () => {
+        initialSelection.style.display = 'block';
+        specialtiesContainer.innerHTML = '';
+    });
+
+    submitTeamButton.addEventListener('click', () => {
+        if (validateSelection()) {
+            showSelectionSummary();
+        }
+    });
+});
