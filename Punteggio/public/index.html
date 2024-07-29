@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FantaOlimpiadi</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>FantaOlimpiadi</h1>
+    </header>
+    
+    <main>
+        <div id="specialties-container"></div>
+        <div id="team-members">
+            <h3>Atleti della Squadra</h3>
+<div id="male-team-members"></div>
+    <div id="female-team-members"></div>
+            <ul id="team-members-list">
+                <div id="male-athletes-container" class="section">
+                    <h3>Atleti</h3>
+                    <h3>100 metri</h3>
+<select id="male-100m-athlete-select" data-specialty="100 metri" data-gender="male">
+    <option value="">Seleziona Atleta</option>
+    
+</select>
+
+         
+                  <h3>200 metri</h3>
+<select id="male-200m-athlete-select" data-specialty="200 metri" data-gender="male">
+    <option value="">Seleziona Atleta</option>
+   
+</select>
+<h3>400 metri</h3>
+<select id="male-400m-athlete-select" data-specialty="400 metri" data-gender="male">
+    <option value="">Seleziona Atleta</option>
+
+</select>
+
+<h3>800 metri</h3>
+<select id="male-800m-athlete-select" data-specialty="800 metri" data-gender="male">
+    <option value="">Seleziona Atleta</option>
+    
+</select>
+<h3>1500 metri</h3>
+<select id="male-1500m-athlete-select" data-specialty="1500 metri" data-gender="male">
+    <option value="">Seleziona Atleta</option>
+   
+</select>
+
+<h3>5000 metri</h3>
+<select id="male-5000m-athlete-select" data-specialty="5000 metri" data-gender="male">
+    <option value="">Seleziona Atleta</option>
+    
+</select>
+<h3>10.000 metri</h3>
+<select id="male-10000m-athlete-select" data-specialty="10000 metri" data-gender="male">
+    <option value="">Seleziona Atleta</option>
+   
+</select>
+
+<h3>Maratona</h3>
+<select id="male-marathon-athlete-select" data-specialty="Maratona" data-gender="male">
+    <option value="" data-points="">Seleziona Atleta</option>
+   
+</select>
+<h3>110 hs</h3>
+<select id="male-110hs-athlete-select" data-specialty="110 hs" data-gender="male">
+    <option value="" data-points="">Seleziona Atleta</option>
+    
+</select>
+<h3>400 hs</h3>
+<select id="male-400hs-athlete-select" data-specialty="400 hs" data-gender="male">
+    <option value="" data-points="">Seleziona Atleta</option>
+   
+</select>
+<h3>3000 sc</h3>
+<select id="male-3000msc-athlete-select" data-specialty="3000 metri sc" data-gender="male">
+    <option value="" data-points="">Seleziona Atleta</option>
+   
+</select>
+<h3>Salto in alto</h3>
+<select id="male-high-jump-athlete-select" data-specialty="Salto in alto" data-gender="male">
+    <option value="" data-points="">Seleziona Atleta</option>
+   
+</select>
+<h3>Salto in lungo</h3>
+<select id="male-long-jump-athlete-select" data-specialty="Salto in lungo" data-gender="male">
+    <option value="" data-points="">Seleziona Atleta</option>
+    
+</select>
+<h3>Salto con l'asta</h3>
+<select id="male-pole-vault-athlete-select" data-specialty="Salto con l'asta" data-gender="male">
+    <option value="" data-points="">Seleziona Atleta</option>
+    
+</select>
+<h3>Salto triplo</h3>
+<select id="male-triple-jump-athlete-select" data-specialty="Salto triplo" data-gender="male">
+    <option value="" data-points="">Seleziona Atleta</option>
+   
+</select>
+<h3>Giavellotto</h3>
+<select id="male-javelin-athlete-select" data-specialty="Giavellotto" data-gender="male">
+    <option value="" data-points="">Seleziona Atleta</option>
+   
+</select>
+<h3>Peso</h3>
+<select id="male-weight-athlete-select" data-specialty="Peso" data-gender="male">
+    <option value="" data-points="">Seleziona Atleta</option>
+   
+</select>
+<h3>Disco</h3>
+<select id="male-discus-athlete-select" data-specialty="Disco" data-gender="male">
+    <option value="" data-points="">Seleziona Atleta</option>
+    
+</select>
+<h3>Martello</h3>
+<select id="male-hammer-athlete-select" data-specialty="Martello" data-gender="male">
+    <option value="" data-points="">Seleziona Atleta</option>
+   
+</select>
+<h3>Decathlon</h3>
+<select id="male-decathlon-athlete-select" data-specialty="Decathlon" data-gender="male">
+    <option value="" data-points="">Seleziona Atleta</option>
+    
+</select>
+<h3>20 Km marcia</h3>
+<select id="male-20km-race-walk-athlete-select" data-specialty="20 Km marcia" data-gender="male">
+    <option value="">Seleziona Atleta</option>
+    
+</select>
+<h3>4x100</h3>
+<select id="male-4x100-athlete-select" data-specialty="4x100" data-gender="male">
+    <option value="">Seleziona Atleta</option>
+    
+</select>
+
+<h3>4x400</h3>
+<select id="male-4x400-athlete-select" data-specialty="4x400" data-gender="male">
+    <option value="">Seleziona Atleta</option>
+    
+</select>
+                </div>
+                <div id="female-athletes-container" class="section">
+                    <h3>Atlete</h3>
+                    <h3>100 metri</h3>
+<select id="female-100m-athlete-select" data-specialty="100 metri" data-gender="female">
+    <option value="">Seleziona Atleta</option>
+    
+                    </select>
+                    <h3>200 Metri</h3>
+<select id="female-200m-athlete-select" data-specialty="200 metri" data-gender="female">
+    <option value="">Seleziona Atleta</option>
+   
+</select>
+<h3>400 Metri</h3>
+<select id="female-400m-athlete-select" data-specialty="400 metri" data-gender="female">
+    <option value="">Seleziona Atleta</option>
+   
+</select>
+<h3>800 Metri</h3>
+<select id="female-800m-athlete-select" data-specialty="800 metri" data-gender="female">
+    <option value="">Seleziona Atleta</option>
+   
+</select>
+<h3>1500 Metri</h3>
+<select id="female-1500m-athlete-select" data-specialty="1500 metri" data-gender="female">
+    <option value="">Seleziona Atleta</option>
+   
+</select>
+<h3>5000 Metri</h3>
+<select id="female-5000m-athlete-select" data-specialty="5000 metri" data-gender="female">
+    <option value="">Seleziona Atleta</option>
+    
+</select>
+<h3>10000 Metri</h3>
+<select id="female-10000m-athlete-select" data-specialty="10000 metri" data-gender="female">
+    <option value="">Seleziona Atleta</option>
+   
+</select>
+<h3>Maratona</h3>
+<select id="female-marathon-athlete-select" data-specialty="Maratona" data-gender="female">
+    <option value="">Seleziona Atleta</option>
+   
+</select>
+<h3>100 hs</h3>
+<select id="female-110hs-athlete-select" data-specialty="110 hs" data-gender="female">
+    <option value="" data-points="">Seleziona Atleta</option>
+   
+</select>
+<h3>400 hs</h3>
+<select id="female-400hs-athlete-select" data-specialty="400 hs" data-gender="female">
+    <option value="" data-points="">Seleziona Atleta</option>
+    
+</select>
+
+<h3>3000 sc</h3>
+<select id="female-3000msc-athlete-select" data-specialty="3000 metri sc" data-gender="female">
+    <option value="" data-points="">Seleziona Atleta</option>
+   
+</select>
+<h3>Salto in Alto</h3>
+<select id="female-high-jump-athlete-select" data-specialty="Salto in alto" data-gender="female">
+    <option value="">Seleziona Atleta</option>
+    
+</select>
+
+<h3>Salto in Lungo</h3>
+<select id="female-long-jump-athlete-select" data-specialty="Salto in lungo" data-gender="female">
+    <option value="">Seleziona Atleta</option>
+   
+</select>
+
+<h3>Salto con l'Asta</h3>
+<select id="female-pole-vault-athlete-select" data-specialty="Salto con l'asta" data-gender="female">
+    <option value="">Seleziona Atleta</option>
+   
+</select>
+<h3>Salto triplo</h3>
+<select id="female-triple-jump-athlete-select" data-specialty="Salto triplo" data-gender="female">
+    <option value="">Seleziona Atleta</option>
+  
+</select>
+<h3>Giavellotto</h3>
+<select id="female-javelin-athlete-select" data-specialty="Giavellotto" data-gender="female">
+    <option value="">Seleziona Atleta</option>
+    
+</select>
+<h3>Peso</h3>
+<select id="female-weight-athlete-select" data-specialty="Peso" data-gender="female">
+    <option value="">Seleziona Atleta</option>
+    
+</select>
+<h3>Disco</h3>
+<select id="female-discus-athlete-select" data-specialty="Disco" data-gender="female">
+    <option value="">Seleziona Atleta</option>
+    
+</select>
+<h3>Martello</h3>
+<select id="female-hammer-athlete-select" data-specialty="Martello" data-gender="female">
+    <option value="">Seleziona Atleta</option>
+    
+</select>
+<h3>Eptathlon</h3>
+<select id="female-decathlon-athlete-select" data-specialty="Decathlon" data-gender="female">
+    <option value="">Seleziona Atleta</option>
+   
+</select>
+<h3>20 Km marcia</h3>
+<select id="female-20km-race-walk-athlete-select" data-specialty="20 Km marcia" data-gender="female">
+    <option value="">Seleziona Atleta</option>
+   
+</select>
+<h3>4x100</h3>
+<select id="female-4x100-athlete-select" data-specialty="4x100" data-gender="female">
+    <option value="">Seleziona Atleta</option>
+    
+</select>
+<h3>4x400</h3>
+<select id="female-4x400-athlete-select" data-specialty="4x400" data-gender="female">
+    <option value="">Seleziona Atleta</option>
+    
+</select>
+
+                </div>
+            </ul>
+        </div>
+
+        <div id="team-management">
+            <input type="text" id="team-name" placeholder="Nome della squadra">
+            <input type="text" id="capitano-maschile" placeholder="Capitano Maschile">
+            <select id="capitano-maschile-specialty">
+               <option value="">Seleziona Specialità</option>
+                <option value="100 metri">100 metri</option>
+                <option value="200 metri">200 metri</option>
+                <option value="400 metri">400 metri</option>
+                <option value="800 metri">800 metri</option>
+                <option value="1500 metri">1500 metri</option>
+                <option value="5000 metri">5000 metri</option>
+                <option value="10000 metri">10000 metri</option>
+                <option value="Maratona">Maratona</option>
+                <option value="110 hs">110 hs</option>
+                <option value="400 hs">400 hs</option>
+                <option value="3000 metri sc">3000 metri sc</option>
+                <option value="Salto in alto">Salto in alto</option>
+                <option value="Salto in lungo">Salto in lungo</option>
+                <option value="Salto con l'asta">Salto con l'asta</option>
+                <option value="Salto triplo">Salto triplo</option>
+                <option value="Giavellotto">Giavellotto</option>
+                <option value="Peso">Peso</option>
+                <option value="Disco">Disco</option>
+                <option value="Martello">Martello</option>
+                <option value="Decathlon">Decathlon</option>
+                <option value="20 Km marcia">20 Km marcia</option>
+                <option value="4x100">4x100</option>
+                <option value="4x400">4x400</option>
+            </select>
+            <input type="text" id="capitano-femminile" placeholder="Capitano Femminile">
+            <select id="capitano-femminile-specialty">
+                <option value="">Seleziona Specialità</option>
+                <option value="100 metri">100 metri</option>
+                <option value="200 metri">200 metri</option>
+                <option value="400 metri">400 metri</option>
+                <option value="800 metri">800 metri</option>
+                <option value="1500 metri">1500 metri</option>
+                <option value="5000 metri">5000 metri</option>
+                <option value="10000 metri">10000 metri</option>
+                <option value="Maratona">Maratona</option>
+                <option value="110 hs">110 hs</option>
+                <option value="400 hs">400 hs</option>
+                <option value="3000 metri sc">3000 metri sc</option>
+                <option value="Salto in alto">Salto in alto</option>
+                <option value="Salto in lungo">Salto in lungo</option>
+                <option value="Salto con l'asta">Salto con l'asta</option>
+                <option value="Salto triplo">Salto triplo</option>
+                <option value="Giavellotto">Giavellotto</option>
+                <option value="Peso">Peso</option>
+                <option value="Disco">Disco</option>
+                <option value="Martello">Martello</option>
+                <option value="Decathlon">Decathlon</option>
+                <option value="20 Km marcia">20 Km marcia</option>
+                <option value="4x100">4x100</option>
+                <option value="4x400">4x400</option>
+            </select>
+            <button id="add-team">Aggiungi Squadra</button>
+        </div>
+
+        <div id="points-assignment">
+            <input type="text" id="athlete-name" placeholder="Nome Atleta">
+ <select id="gender">
+                <option value="male">Maschile</option>
+                <option value="female">Femminile</option>
+            </select>
+            <select id="specialty">
+                <option value="">Seleziona Specialità</option>
+                <option value="100 metri">100 metri</option>
+                <option value="200 metri">200 metri</option>
+                <option value="400 metri">400 metri</option>
+                <option value="800 metri">800 metri</option>
+                <option value="1500 metri">1500 metri</option>
+                <option value="5000 metri">5000 metri</option>
+                <option value="10000 metri">10000 metri</option>
+                <option value="Maratona">Maratona</option>
+                <option value="110 hs">110 hs</option>
+                <option value="400 hs">400 hs</option>
+                <option value="3000 metri sc">3000 metri sc</option>
+                <option value="Salto in alto">Salto in alto</option>
+                <option value="Salto in lungo">Salto in lungo</option>
+                <option value="Salto con l'asta">Salto con l'asta</option>
+                <option value="Salto triplo">Salto triplo</option>
+                <option value="Giavellotto">Giavellotto</option>
+                <option value="Peso">Peso</option>
+                <option value="Disco">Disco</option>
+                <option value="Martello">Martello</option>
+                <option value="Decathlon">Decathlon</option>
+                <option value="20 Km marcia">20 Km marcia</option>
+                <option value="4x100">4x100</option>
+                <option value="4x400">4x400</option>
+            </select>
+            <input type="text" id="stage" placeholder="Fase (Semifinale/Finale)">
+            <input type="number" id="position" placeholder="Posizione">
+            <input type="checkbox" id="record"> Record nazionale
+            <input type="checkbox" id="record-continental"> Record Continentale
+            <input type="checkbox" id="record-championships"> Record dei Campionati
+            <input type="checkbox" id="record-world"> Record Mondiale
+            <input type="checkbox" id="dnf"> DNF
+            <input type="checkbox" id="dq"> DQ
+           
+            <button id="assign-points">Assegna Punti</button>
+        </div>
+        
+        <div id="teams-container">
+            <h2>Squadre</h2>
+            <button id="show-teams">Mostra Squadre</button>
+            <div id="teams-list"></div>
+        </div>
+        
+       
+    </main>
+</body>
+</html>
